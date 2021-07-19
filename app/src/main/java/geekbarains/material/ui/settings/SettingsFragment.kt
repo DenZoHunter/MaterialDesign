@@ -1,4 +1,4 @@
-package geekbarains.material.ui.SettingsFragment
+package geekbarains.material.ui.settings
 
 import android.os.Bundle
 import android.view.LayoutInflater

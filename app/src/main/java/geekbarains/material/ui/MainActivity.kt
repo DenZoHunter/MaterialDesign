@@ -7,6 +7,7 @@ import geekbarains.material.ui.picture.PictureOfTheDayFragment
 
 class MainActivity : AppCompatActivity() {
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
@@ -17,3 +18,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+

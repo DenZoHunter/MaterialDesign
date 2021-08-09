@@ -18,6 +18,7 @@ import geekbarains.material.ui.MainActivity
 import geekbarains.material.ui.api.ApiActivity
 import geekbarains.material.ui.apibottom.ApiBottomActivity
 import geekbarains.material.ui.settings.SettingsFragment
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_main.*
 
 class PictureOfTheDayFragment : Fragment() {
@@ -49,6 +50,7 @@ class PictureOfTheDayFragment : Fragment() {
             })
         }
         setBottomAppBar(view)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -137,3 +139,4 @@ class PictureOfTheDayFragment : Fragment() {
         private var isMain = true
     }
 }
+

@@ -20,6 +20,7 @@ import geekbarains.material.ui.apibottom.ApiBottomActivity
 import geekbarains.material.ui.settings.SettingsFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_main.*
+import kotlinx.android.synthetic.main.fragment_main_explanation_text.*
 
 class PictureOfTheDayFragment : Fragment() {
 
@@ -60,7 +61,14 @@ class PictureOfTheDayFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.app_bar_fav -> activity?.let { startActivity(Intent(it, ApiBottomActivity::class.java)) }
+            R.id.app_bar_fav -> activity?.let {
+                startActivity(
+                    Intent(
+                        it,
+                        ApiBottomActivity::class.java
+                    )
+                )
+            }
             R.id.app_bar_settings -> activity?.supportFragmentManager?.beginTransaction()
                 ?.add(R.id.container, SettingsFragment())?.addToBackStack(null)?.commit()
             android.R.id.home -> {
@@ -81,6 +89,7 @@ class PictureOfTheDayFragment : Fragment() {
                 if (url.isNullOrEmpty()) {
                     //showError("Сообщение, что ссылка пустая")
                     toast("Link is empty")
+
                 } else {
                     //showSuccess()
                     image_view.load(url) {
@@ -88,6 +97,9 @@ class PictureOfTheDayFragment : Fragment() {
                         error(R.drawable.ic_load_error_vector)
                         placeholder(R.drawable.ic_no_photo_vector)
                     }
+                }
+                serverResponseData.explanation?.let {
+                    text_view.text = it
                 }
             }
             is PictureOfTheDayData.Loading -> {
